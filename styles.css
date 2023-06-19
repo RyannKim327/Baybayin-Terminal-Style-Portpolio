@@ -1,0 +1,73 @@
+@font-face{
+	font-family: my_font;
+	src:url("assets/SulatBaybayinSerif.otf");
+}
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	user-select: none;
+	box-sizing: border-box;
+	font-family: my_font !important;
+}
+body{
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+
+#terminal-frame{
+	background-color: #131320;
+	color: #b6ffb6;
+	margin: .5em;
+	border-radius: .25em;
+	box-shadow: 5px 5px 10px #909090,
+	-2px -2px 5px inset #373747;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	overflow-y: scroll;
+	height: 97vh;
+}
+
+#terminal-nav{
+	position: sticky;
+	top: 0;
+	background-color: #131320;
+	padding: .5em;
+	margin: 0;
+}
+
+#terminal-nav > span{
+	background-color: #ffffff;
+	border-radius: 100em;
+	font-size: xx-small;
+	color: black;
+	padding: .5em 1.05em;
+	margin: .25em;
+}
+
+#terminal-nav > span:nth-child(1){
+	background-color: #ff002f;
+}
+#terminal-nav > span:nth-child(2){
+	background-color: #ffa600;
+}
+#terminal-nav > span:nth-child(3){
+	background-color: #39fe1f;
+}
+
+#terminal-main{
+	padding: .5em;
+	margin: 1em;
+}
+
+::-webkit-scrollbar{
+	display: none;
+}
+
+#terminal-main::-webkit-scrollbar{
+	width: 1em;
+	background-color: #373747;
+}
