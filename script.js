@@ -2,16 +2,33 @@ const body = document.getElementById("terminal-main")
 
 let iter = 0
 let text = ""
+let base
 
-let createText = () => {
-	let base = document.createElement("span")
+let createInput = () => {
+	const container = document.createElement("div")
+	const label = document.createElement("label")
+	const input = document.createElement("input")
+	label.textContent = "$"
+	container.appendChild(label)
+	container.appendChild(input)
+	body.appendChild(container)
+}
+
+let typeText = () => {
 	setTimeout(() => {
 		if(iter < text.length){
 			base.textContent += text[iter]
 			iter++
-			createText()
+			typeText()
+		}else{
+			createInput()
 		}
 	}, 75)
+}
+
+let createText = () => {
+	base = document.createElement("span")
+	typeText()
 	body.appendChild(base)
 }
 

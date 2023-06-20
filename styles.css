@@ -61,6 +61,27 @@ body{
 #terminal-main{
 	padding: .5em;
 	margin: 1em;
+	width: 100%;
+}
+
+#terminal-main > span{
+	display: block;
+}
+
+#terminal-main > div{
+	display: flex;
+	flex-direction: row;
+}
+
+#terminal-main > div > input{
+	background-color: #131320;
+	color: #b6ffb6;
+	border-bottom: 1px #ffffff solid;
+	width: 97%;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0 .5em;
 }
 
 ::-webkit-scrollbar{
