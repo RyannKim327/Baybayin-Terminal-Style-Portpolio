@@ -3,12 +3,48 @@ const body = document.getElementById("terminal-main")
 let iter = 0
 let text = ""
 let base
+let hold = ""
+let orig
+
+let baybayinChecker = (text) => {
+	let txt = text.replce(/\s/gi, "").replce(/([\W])+/gi, "")
+	let _return = true
+	for(let i = 0; i < txt.length; i++){
+		let code = txt.charCodeAt(i)
+		if(code <= 5888 && code >= 5942){
+			_return = false
+			break
+		}
+	}
+	return _return
+}
+
+let execute = () => {
+	if(baybayinChecker(hold)){
+		text = "ᜋᜀᜀᜇᜒᜅ᜔ ᜋᜅ ᜃᜇᜃ᜔ᜆᜒᜇ᜔ ᜎᜅ᜔ ᜈᜅ᜔ ᜊᜌ᜔ᜊᜌᜒᜈ᜔ ᜀᜅ᜔ ᜋᜀᜀᜇᜒᜅ᜔ ᜁᜎᜄᜌ᜔ ᜇᜒᜆᜓ᜶"
+		createText()
+	}else{
+		text = "Sample"
+		createText()
+	}
+}
 
 let createInput = () => {
 	const container = document.createElement("div")
 	const label = document.createElement("label")
 	const input = document.createElement("input")
 	label.textContent = "$"
+	input.addEventListener("keyup", (event) => {
+		if(input.value == ""){
+			alert("Hindi po maaari na walang laman itong lalagyan, salamat po.")
+		}else{
+			event.preventDefault()
+			input.readOnly = "readonly"
+			hold = input.value.toLowerCase()
+			orig = input.value
+			execute()
+		}
+	})
 	container.appendChild(label)
 	container.appendChild(input)
 	body.appendChild(container)
@@ -23,7 +59,7 @@ let typeText = () => {
 		}else{
 			createInput()
 		}
-	}, 75)
+	}, 25)
 }
 
 let createText = () => {
